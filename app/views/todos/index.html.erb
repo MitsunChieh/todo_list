@@ -12,7 +12,7 @@
       <% @todos.each do |todo| %>
         <li>
           <p class="due_date">Due Date : <%= todo.due_date %></p>
-          <p class="title"><%= todo.title %></p>
+          <p class="title"><%= link_to todo.title, todo_path(todo) %></p>
 
           <div class="actions">
             <%# 把編輯與刪除按鍵搬到 todos_helper.rb %>

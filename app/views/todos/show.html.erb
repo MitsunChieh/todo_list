@@ -1,0 +1,9 @@
+<div class="itembox">
+  <p class="due_date">Due Date : <%= @todo.due_date %></p>
+  <p class="title"><%= @todo.title %></p>
+  <%= simple_format @todo.note, class: 'note' %>
+  <div class="itembox_btn">
+    <%= todo_edit_button(@todo) %>
+    <%= link_to 'BACK', todos_path, class: 'btn btn-default' %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 # :nodoc:
 class TodosController < ApplicationController
-  before_action :find_todo, only: %i[edit update destroy]
+  before_action :find_todo, only: %i[show edit update destroy]
 
   def index
     # 依到期日 (due_date) 近到遠，取得 todos
@@ -28,8 +28,10 @@ class TodosController < ApplicationController
     end
   end
 
-  # 本範例中，todos 用不到七個標準 actions 裡的 show
-  # def show; end
+  # 彷彿沒有內容，是因為原先此 action 內的代碼:
+  # @todo = Todo.find(params[:id])
+  # 此行的作用已被 before_action :find_todo 取代
+  def show; end
 
   # 彷彿沒有內容，是因為原先此 action 內的代碼:
   # @todo = Todo.find(params[:id])

@@ -1,12 +1,12 @@
 <div class="errorbox">
   <% if @todo.errors.any? %>
     <h2>We have some errors here !</h2>
-      <ul class="errorlist">
-        <% @todo.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <ul class="errorlist">
+      <% @todo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
 
 <div class="itembox">
@@ -25,7 +25,7 @@
     <br>
     <div class="itembox_btn">
       <%= f.submit button, class: 'btn btn-success' %>
-      <%= link_to 'BACK', todos_path, class: 'btn btn-default' %>
+      <%= link_to 'BACK', :back, class: 'btn btn-default' %>
     </div>
   <% end %>
 </div>
