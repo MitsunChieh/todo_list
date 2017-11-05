@@ -15,10 +15,12 @@
           <p class="title"><%= todo.title %></p>
 
           <div class="actions">
-            <%= link_to 'EDIT', edit_todo_path(todo), class: 'btn btn-primary' %>
-            <%= link_to 'DEL', todo_path(todo), class: 'btn btn-danger', method: :delete, data: { confirm: 'Delete this item ?' } %>
+            <%# 把編輯與刪除按鍵搬到 todos_helper.rb %>
+            <%# 用 helper 的方式來做按鈕的 render %>
+            <%# 可把 todo 物件，當成參數傳入 helper %>
+            <%= todo_edit_button(todo) %>
+            <%= todo_delete_button(todo) %>
           </div>
-
         </li>
         <li class="itembar"></li>
       <% end %>

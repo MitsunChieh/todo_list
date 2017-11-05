@@ -14,9 +14,10 @@ class TodosController < ApplicationController
   def create
     # 依傳入參數 new 一個 Todo 實例
     @todo = Todo.new(todo_params)
-    # 如果 model 驗證成功，則儲存，並回到列表頁
-    # 如果 model 驗證失敗，則不儲存，並保留已填寫資訊，回到 new，繼續填寫
+    # 如果驗證成功，則儲存，並回到列表頁，告知成功新增
+    # 如果驗證失敗，則不儲存，並保留已填寫資訊，回到 new，繼續填寫
     if @todo.save
+      # 跳出通知訊息，告知成功新增
       flash[:notice] = 'List was successfully created !!'
       # 重新發出 request，導往列表頁。對瀏覽器來說會重整頁面
       redirect_to todos_path
@@ -39,9 +40,10 @@ class TodosController < ApplicationController
     # @todo = Todo.find(params[:id])
     # 此行的作用已被 before_action :find_todo 取代
 
-    # 如果 model 驗證成功，則更新，並回到列表頁
-    # 如果 model 驗證失敗，則不更新，並保留已填寫資訊，回到 edit，繼續填寫
+    # 如果驗證成功，則更新，並回到列表頁，告知成功更新
+    # 如果驗證失敗，則不更新，並保留已填寫資訊，回到 edit，繼續填寫
     if @todo.update(todo_params)
+      # 跳出通知訊息，告知成功更新
       flash[:notice] = 'List was successfully updated !!'
       # 重新發出 request，導往列表頁。對瀏覽器來說會重整頁面
       redirect_to todos_path
@@ -55,10 +57,22 @@ class TodosController < ApplicationController
   def destroy
     # @todo = Todo.find(params[:id])
     # 此行的作用已被 before_action :find_todo 取代
-    @todo.destroy
-    flash[:alert] = 'List was successfully deleted !!'
-    # 重新發出 request，導往列表頁。對瀏覽器來說會重整頁面
-    redirect_to todos_path
+
+    # Todo#can_desctroy? 定義在 todo.rb 裡
+    # 如果可以刪除，則刪除，並回到列表頁，告知刪除成功
+    # 如果不允許刪除，則回到列表頁，並告知過期
+    if @todo.can_destroy?
+      @todo.destroy
+      # 跳出警告訊息，告知成功刪除
+      flash[:alert] = 'List was successfully deleted !!'
+      # 重新發出 request，導往列表頁。對瀏覽器來說會重整頁面
+      redirect_to todos_path
+    else
+      # 跳出警告訊息，告知過期
+      flash[:alert] = 'List is overdue, can not be deleted !!'
+      # 重新發出 request，導往列表頁。對瀏覽器來說會重整頁面
+      redirect_to todos_path
+    end
   end
 
   private
