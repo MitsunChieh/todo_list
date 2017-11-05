@@ -19,6 +19,10 @@
     <br>
     <%= f.date_select :due_date %>
     <br>
+    <%= f.label :note, 'Note' %>
+    <br>
+    <%= f.text_area :note %>
+    <br>
     <div class="itembox_btn">
       <%= f.submit button, class: 'btn btn-success' %>
       <%= link_to 'BACK', todos_path, class: 'btn btn-default' %>

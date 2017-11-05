@@ -79,6 +79,6 @@ class TodosController < ApplicationController
     # params 變數是 Rails 在消化完 http request 後，所留下的 controller 常用參數群
     # #require 方法裡的 symbol 與 form 送回的物件名稱相同
     # #permit  方法裡的 symbol 與 form 送回的物件欄位名稱相同
-    params.require(:todo).permit(:title, :due_date)
+    params.require(:todo).permit(:title, :due_date, :note)
   end
 end
