@@ -1,0 +1,162 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
+
+// =============normal setting============
+
+* {
+  // border: solid 1px black;
+  font-family: 'Gochi Hand', cursive;
+}
+
+@font-face {
+  font-family: 'Gochi Hand', cursive;
+
+}
+
+body {
+  background-color: #EDF4ED;
+
+}
+
+h1 {
+  text-align: center;
+  font-size: 70px;
+}
+
+li {
+  display: inline-block;
+  position: relative;
+
+  width: 95%;
+
+  font-size: 40px;
+}
+
+// ===============index page===============
+
+.sticker {
+  width: 180px;
+  height: 40px;
+
+  background-color: white ;
+  opacity: 0.6;
+  border: solid 1px #D8D8D8;
+
+  transform: rotate(-30deg);
+  position: absolute;
+  left: -30px;
+
+  z-index: 1;
+}
+
+.listbox {
+  width: 600px;
+  max-height: 800px;
+
+  border:solid 2px grey;
+  border-radius: 15px;
+  background-color: #F3FFBD;
+  background: linear-gradient(to bottom, #f3ffbd, white);
+
+  margin: 100px auto;
+  position: relative;
+  box-shadow: 3px 3px 8px rgba(0,0,0,.5);
+}
+
+.underbar {
+  width: 70px;
+  height: 10px;
+
+  background-color: red;
+
+  margin: 0 auto 30px auto;
+}
+
+.addbtn {
+  position: absolute;
+  margin: 0px 30px;
+  left: 40px;
+}
+
+.list {
+  margin: 80px 30px;
+  max-height: 550px;
+  overflow: scroll;
+}
+
+.due_date {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
+.actions {
+  position: absolute;
+
+  right: 0;
+  top: 7px;
+}
+
+.itembar {
+  width: 95%;
+  height: 1.5px;
+
+  background-color: #DEE5DE;
+}
+
+// ================partial page==============
+
+.errorbox {
+  width: 400px;
+  height: 150px;
+  margin: 20px auto;
+  text-align: center;
+  border: solid 1px #EDF4ED;
+  color: red;
+}
+
+.errorlist {
+  list-style: none;
+  padding: 0;
+}
+
+.itembox {
+  width: 400px;
+  background-color: #f3ffbd;
+  box-shadow: 3px 3px 8px rgba(0,0,0,.5);
+  border: solid 2px grey;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 22px;
+}
+
+// .input_text {
+//   text-align:center;
+// }
+
+.itembox_btn {
+  margin: 10px;
+}

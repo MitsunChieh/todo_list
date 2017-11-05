@@ -1,0 +1,27 @@
+<div class="errorbox">
+  <% if @todo.errors.any? %>
+    <h2>We have some errors here !</h2>
+      <ul class="errorlist">
+        <% @todo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+</div>
+
+<div class="itembox">
+  <%= form_for @todo do |f| %>
+    <%= f.label :title, 'Title' %>
+    <br>
+    <%= f.text_area :title %>
+    <br>
+    <%= f.label :due_date, 'Due Date' %>
+    <br>
+    <%= f.date_select :due_date %>
+    <br>
+    <div class="itembox_btn">
+      <%= f.submit button, class: 'btn btn-success' %>
+      <%= link_to 'BACK', todos_path, class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>

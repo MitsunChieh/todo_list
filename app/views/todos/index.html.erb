@@ -1,0 +1,27 @@
+<div class="listbox">
+  <div class="sticker"></div>
+  <h1>To Do List</h1>
+  <div class="underbar"></div>
+
+  <div class="addbtn">
+    <%= link_to 'ADD LIST', new_todo_path, class: 'btn btn-success' %>
+  </div>
+
+  <div class="list">
+    <ul>
+      <% @todos.each do |todo| %>
+        <li>
+          <p class="due_date">Due Date : <%= todo.due_date %></p>
+          <p class="title"><%= todo.title %></p>
+
+          <div class="actions">
+            <%= link_to 'EDIT', edit_todo_path(todo), class: 'btn btn-primary' %>
+            <%= link_to 'DEL', todo_path(todo), class: 'btn btn-danger', method: :delete, data: { confirm: 'Delete this item ?' } %>
+          </div>
+
+        </li>
+        <li class="itembar"></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

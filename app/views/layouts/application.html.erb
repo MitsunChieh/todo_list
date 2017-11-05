@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TodoList</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      body{
+        position: relative;
+      }
+
+      .amendmsg{
+        width: 300px;
+        height: 30px;
+
+        line-height: 20px;
+
+        /*border: solid 1px black;*/
+        display: inline-block;
+        position: absolute;
+
+        right: 50%;
+        transform: translate(70%, 50%);
+        z-index: 1;
+
+        margin: 140px auto;
+      }
+
+      .amendmsg p{
+        font-size: 24px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="amendmsg">
+      <p style="color: green"><%= flash[:notice] %></p>
+      <p style="color: red"><%= flash[:alert] %></p>
+    </div>
+    <%= yield %>
+  </body>
+</html>
